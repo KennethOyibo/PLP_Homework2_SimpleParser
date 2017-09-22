@@ -248,7 +248,35 @@ public class Parser {
 	}
 	
 	void orExpression() throws SyntaxException {
-		
+		andExpression();
+		while (t.kind == OP_OR) {
+			matchToken(OP_OR);
+			andExpression();
+		}
+	}
+	
+	void andExpression() throws SyntaxException {
+		eqExpression();
+	}
+	
+	void eqExpression() throws SyntaxException {
+		relExpression();
+	}
+	
+	void relExpression() throws SyntaxException {
+		addExpression();
+	}
+	
+	void addExpression() throws SyntaxException {
+		multExpression();
+	}
+	
+	void multExpression() throws SyntaxException {
+		unaryExpression();
+	}
+	
+	void unaryExpression() throws SyntaxException {
+		matchToken(OP_PLUS);
 	}
 
 	/**
