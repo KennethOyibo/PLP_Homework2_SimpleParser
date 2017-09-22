@@ -257,22 +257,82 @@ public class Parser {
 	
 	void andExpression() throws SyntaxException {
 		eqExpression();
+		while (t.kind == OP_AND) {
+			matchToken(OP_AND);
+			eqExpression();
+		}
 	}
 	
 	void eqExpression() throws SyntaxException {
 		relExpression();
+		while (t.kind == OP_EQ || t.kind == OP_NEQ) {
+			if (t.kind == OP_EQ) {
+				matchToken(OP_EQ);
+			} else if (t.kind == OP_NEQ) {
+				matchToken(OP_NEQ);
+			}
+			relExpression();
+		}
 	}
 	
 	void relExpression() throws SyntaxException {
 		addExpression();
+		while (t.kind == OP_LT || t.kind == OP_GT || t.kind == OP_LE || t.kind == OP_GE) {
+			switch (t.kind) {
+			case OP_LT:
+				matchToken(OP_LT);
+				break;
+			case OP_GT:
+				matchToken(OP_GT);
+				break;
+			case OP_LE:
+				matchToken(OP_LE);
+				break;
+			case OP_GE:
+				matchToken(OP_GE);
+				break;
+			default:
+				break;
+			}
+			addExpression();
+		}
 	}
 	
 	void addExpression() throws SyntaxException {
 		multExpression();
+		while (t.kind == OP_PLUS || t.kind == OP_MINUS) {
+			switch (t.kind) {
+			case OP_PLUS:
+				matchToken(OP_PLUS);
+				break;
+			case OP_MINUS:
+				matchToken(OP_MINUS);
+				break;
+			default:
+				break;
+			}
+			multExpression();
+		}
 	}
 	
 	void multExpression() throws SyntaxException {
 		unaryExpression();
+		while (t.kind == OP_TIMES || t.kind == OP_DIV || t.kind == OP_MOD) {
+			switch (t.kind) {
+			case OP_TIMES:
+				matchToken(OP_TIMES);
+				break;
+			case OP_DIV:
+				matchToken(OP_DIV);
+				break;
+			case OP_MOD:
+				matchToken(OP_MOD);
+				break;
+			default:
+				break;
+			}
+			unaryExpression();
+		}
 	}
 	
 	void unaryExpression() throws SyntaxException {
