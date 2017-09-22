@@ -44,8 +44,36 @@ public class Parser {
 	 */
 	void program() throws SyntaxException {
 		// TODO implement this
-		matchToken(IDENTIFIER);
 
+		if (t.kind == IDENTIFIER) {
+
+			matchToken(IDENTIFIER);
+
+			while (t.kind == KW_int || t.kind == KW_boolean || t.kind == KW_image || t.kind == KW_url
+					|| t.kind == KW_file) {
+				declaration();
+				if (t.kind == SEMI) {
+					matchToken(SEMI);
+				} else {
+					throw new SyntaxException(t, "Missing Semicolon");
+				}
+
+			}
+
+			while (t.kind == IDENTIFIER) {
+				statement();
+				if (t.kind == SEMI) {
+					matchToken(SEMI);
+				} else {
+					throw new SyntaxException(t, "Missing Semicolon");
+				}
+			}
+		} else {
+			throw new SyntaxException(t, "Illegal Start of Program");
+		}
+	}
+	
+	void declaration() throws SyntaxException {
 		if (t.kind == KW_int || t.kind == KW_boolean) {
 			variableDeclaration();
 		} else if (t.kind == KW_image) {
@@ -53,7 +81,57 @@ public class Parser {
 		} else if (t.kind == KW_url || t.kind == KW_file) {
 			sourceSinkDeclaration();
 		}
-		throw new UnsupportedOperationException();
+	}
+	
+	void statement() throws SyntaxException {
+		if (t.kind == IDENTIFIER && scanner.peek().kind == OP_RARROW) {
+			imageOutDeclaration();
+		} else if (t.kind == IDENTIFIER && scanner.peek().kind == OP_LARROW) {
+			imageInDeclaration();
+		} else {
+			assignmentStatement();
+		}
+	}
+	
+	void imageOutDeclaration() throws SyntaxException {
+		matchToken(IDENTIFIER, OP_RARROW);
+		sink();
+	}
+	
+	void sink() throws SyntaxException {
+		switch (t.kind) {
+		case IDENTIFIER:
+			matchToken(IDENTIFIER);
+			break;
+		case KW_SCREEN:
+			matchToken(KW_SCREEN);
+		default:
+			throw new SyntaxException(t, "Illegal Sink");
+		}
+	}
+	
+	void imageInDeclaration() throws SyntaxException {
+		matchToken(IDENTIFIER, OP_RARROW);
+		source();
+	}
+	
+	void assignmentStatement()  throws SyntaxException {
+		lhs();
+		matchToken(OP_ASSIGN);
+		expression();
+	}
+	
+	void lhs() throws SyntaxException {
+		matchToken(IDENTIFIER);
+		if (t.kind == LSQUARE) {
+			matchToken(LSQUARE);
+			lhsSelector();
+			matchToken(RSQUARE);
+		}
+	}
+	
+	void lhsSelector() throws SyntaxException {
+		
 	}
 	
 	void variableDeclaration() throws SyntaxException {
@@ -96,7 +174,22 @@ public class Parser {
 	}
 	
 	void sourceSinkDeclaration() throws SyntaxException {
-		
+		sourceSinkType();
+		matchToken(IDENTIFIER, OP_ASSIGN);
+		source();
+	}
+	
+	void sourceSinkType() throws SyntaxException {
+		switch (t.kind) {
+		case KW_url:
+			matchToken(KW_url);
+			break;
+		case KW_file:
+			matchToken(KW_file);
+			break;
+		default:
+			throw new SyntaxException(t, "Illegal Source Sink Type");
+		}
 	}
 	
 	void source() throws SyntaxException {
