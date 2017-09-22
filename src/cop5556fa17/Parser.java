@@ -69,10 +69,10 @@ public class Parser {
 				}
 			}
 		} else {
-			throw new SyntaxException(t, "Illegal Start of Program");
+			throw new UnsupportedOperationException();
 		}
 	}
-	
+
 	void declaration() throws SyntaxException {
 		if (t.kind == KW_int || t.kind == KW_boolean) {
 			variableDeclaration();
@@ -82,7 +82,7 @@ public class Parser {
 			sourceSinkDeclaration();
 		}
 	}
-	
+
 	void statement() throws SyntaxException {
 		if (t.kind == IDENTIFIER && scanner.peek().kind == OP_RARROW) {
 			imageOutDeclaration();
@@ -92,12 +92,12 @@ public class Parser {
 			assignmentStatement();
 		}
 	}
-	
+
 	void imageOutDeclaration() throws SyntaxException {
 		matchToken(IDENTIFIER, OP_RARROW);
 		sink();
 	}
-	
+
 	void sink() throws SyntaxException {
 		switch (t.kind) {
 		case IDENTIFIER:
@@ -109,18 +109,18 @@ public class Parser {
 			throw new SyntaxException(t, "Illegal Sink");
 		}
 	}
-	
+
 	void imageInDeclaration() throws SyntaxException {
 		matchToken(IDENTIFIER, OP_RARROW);
 		source();
 	}
-	
-	void assignmentStatement()  throws SyntaxException {
+
+	void assignmentStatement() throws SyntaxException {
 		lhs();
 		matchToken(OP_ASSIGN);
 		expression();
 	}
-	
+
 	void lhs() throws SyntaxException {
 		matchToken(IDENTIFIER);
 		if (t.kind == LSQUARE) {
@@ -129,11 +129,25 @@ public class Parser {
 			matchToken(RSQUARE);
 		}
 	}
-	
+
 	void lhsSelector() throws SyntaxException {
-		
+		matchToken(LSQUARE);
+		if (t.kind == KW_x) {
+			xySelector();
+		} else if (t.kind == KW_r) {
+			raSelector();
+		}
+		matchToken(RSQUARE);
 	}
-	
+
+	void xySelector() throws SyntaxException {
+		matchToken(KW_x, COMMA, KW_y);
+	}
+
+	void raSelector() throws SyntaxException {
+		matchToken(KW_r, COMMA, KW_A);
+	}
+
 	void variableDeclaration() throws SyntaxException {
 		varType();
 		matchToken(IDENTIFIER);
@@ -155,7 +169,7 @@ public class Parser {
 			throw new SyntaxException(t, "Illegal varType");
 		}
 	}
-	
+
 	void imageDeclaration() throws SyntaxException {
 		matchToken(KW_image);
 		if (t.kind == LSQUARE) {
@@ -172,13 +186,13 @@ public class Parser {
 			}
 		}
 	}
-	
+
 	void sourceSinkDeclaration() throws SyntaxException {
 		sourceSinkType();
 		matchToken(IDENTIFIER, OP_ASSIGN);
 		source();
 	}
-	
+
 	void sourceSinkType() throws SyntaxException {
 		switch (t.kind) {
 		case KW_url:
@@ -191,7 +205,7 @@ public class Parser {
 			throw new SyntaxException(t, "Illegal Source Sink Type");
 		}
 	}
-	
+
 	void source() throws SyntaxException {
 		switch (t.kind) {
 		case STRING_LITERAL:
@@ -220,7 +234,21 @@ public class Parser {
 	 */
 	void expression() throws SyntaxException {
 		// TODO implement this.
-		throw new UnsupportedOperationException();
+		if (t.kind == OP_PLUS || t.kind == OP_MINUS || t.kind == OP_EXCL) {
+			orExpression();
+			if (t.kind == OP_Q) {
+				matchToken(OP_Q);
+				expression();
+				matchToken(OP_COLON);
+				expression();
+			}
+		} else {
+			throw new UnsupportedOperationException();
+		}
+	}
+	
+	void orExpression() throws SyntaxException {
+		
 	}
 
 	/**
