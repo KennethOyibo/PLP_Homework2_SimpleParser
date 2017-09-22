@@ -96,7 +96,5 @@ public class ParserTest {
 		parser.expression();  //Call expression directly.  
 	}
 
-
-	
-	}
+}
 
