@@ -336,7 +336,24 @@ public class Parser {
 	}
 	
 	void unaryExpression() throws SyntaxException {
+		switch (t.kind) {
+		case OP_PLUS:
+			matchToken(OP_PLUS);
+			unaryExpression();
+			break;
+		case OP_MINUS:
+			matchToken(OP_MINUS);
+			unaryExpression();
+		case OP_EXCL:
+			unaryExpressionNotPlusMinus();
+		default:
+			break;
+		}
 		matchToken(OP_PLUS);
+	}
+	
+	void unaryExpressionNotPlusMinus() throws SyntaxException {
+		
 	}
 
 	/**
