@@ -436,7 +436,12 @@ public class Parser {
 	}
 	
 	void identOrPixelSelectorExpression() throws SyntaxException {
-		
+		matchToken(IDENTIFIER);
+		if (t.kind == LSQUARE) {
+			matchToken(LSQUARE);
+			selector();
+			matchToken(RSQUARE);
+		}
 	}
 	
 	void functionApplication() throws SyntaxException {
