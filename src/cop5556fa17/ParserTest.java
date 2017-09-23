@@ -76,12 +76,22 @@ public class ParserTest {
 	 */
 	@Test
 	public void expression1() throws SyntaxException, LexicalException {
-		String input = "2 + 4 * 5 / 6 ;";
+		String input = "2";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
 		parser.expression(); // Call expression directly.
+	}
+	
+	@Test
+	public void expression2() throws SyntaxException, LexicalException {
+		String input = "var[x,y] != 5;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.program(); // Call expression directly.
 	}
 
 }
