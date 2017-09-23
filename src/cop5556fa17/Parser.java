@@ -69,7 +69,7 @@ public class Parser {
 				}
 			}
 		} else {
-			throw new UnsupportedOperationException();
+			throw new SyntaxException(t, "Illegal Start of Program");
 		}
 	}
 
@@ -353,6 +353,72 @@ public class Parser {
 	}
 	
 	void unaryExpressionNotPlusMinus() throws SyntaxException {
+		switch (t.kind) {
+		case OP_EXCL:
+			matchToken(OP_EXCL);
+			unaryExpression();
+			break;
+		case INTEGER_LITERAL:
+			primary();
+			break;
+		case IDENTIFIER:
+			identOrPixelSelectorExpression();
+			break;
+		case KW_x:
+			matchToken(KW_x);
+			break;
+		case KW_y:
+			matchToken(KW_y);
+			break;
+		case KW_r:
+			matchToken(KW_r);
+			break;
+		case KW_a:
+			matchToken(KW_a);
+			break;
+		case KW_X:
+			matchToken(KW_X);
+			break;
+		case KW_Y:
+			matchToken(KW_Y);
+			break;
+		case KW_Z:
+			matchToken(KW_Z);
+			break;
+		case KW_A:
+			matchToken(KW_A);
+			break;
+		case KW_R:
+			matchToken(KW_R);
+			break;
+		case KW_DEF_X:
+			matchToken(KW_DEF_X);
+			break;
+		case KW_DEF_Y:
+			matchToken(KW_DEF_Y);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	void primary() throws SyntaxException {
+		
+	}
+	
+	void identOrPixelSelectorExpression() throws SyntaxException {
+		
+	}
+	
+	void functionApplication() throws SyntaxException {
+		
+	}
+	
+	void functionName() throws SyntaxException {
+		
+	}
+	
+	void selector() throws SyntaxException {
 		
 	}
 
@@ -389,8 +455,8 @@ public class Parser {
 	}
 
 	private Token consume() throws SyntaxException {
-		Token tempToken = t;
+		Token currentToken = t;
 		t = scanner.nextToken();
-		return tempToken;
+		return currentToken;
 	}
 }
