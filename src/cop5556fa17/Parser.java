@@ -105,6 +105,7 @@ public class Parser {
 			break;
 		case KW_SCREEN:
 			matchToken(KW_SCREEN);
+			break;
 		default:
 			throw new SyntaxException(t, "Illegal Sink");
 		}
@@ -371,6 +372,7 @@ public class Parser {
 		case OP_MINUS:
 			matchToken(OP_MINUS);
 			unaryExpression();
+			break;
 		case OP_EXCL:
 		case INTEGER_LITERAL:
 		case LPAREN:
@@ -469,6 +471,7 @@ public class Parser {
 			matchToken(LPAREN);
 			expression();
 			matchToken(RPAREN);
+			break;
 		case KW_sin:
 		case KW_cos:
 		case KW_atan:
@@ -558,20 +561,24 @@ public class Parser {
 		throw new SyntaxException(t, message);
 	}
 
-	private Token matchToken(Kind kind) throws SyntaxException {
+	private void matchToken(Kind kind) throws SyntaxException {
 		if (t.kind == kind) {
-			return consume();
+			consume();
+		} else {
+			String message = "Got token of kind " + t.kind + " instead of " + kind;
+			throw new SyntaxException(t, message);
 		}
-		throw new SyntaxException(t, "Got token of kind " + t.kind + " instead of " + kind);
 	}
 
-	private Token matchToken(Kind... kinds) throws SyntaxException {
+	private void matchToken(Kind... kinds) throws SyntaxException {
 		for (Kind k : kinds) {
 			if (k == t.kind) {
-				return consume();
+				consume();
+			} else {
+				String message = "Got token of kind " + t.kind + " instead of " + k;
+				throw new SyntaxException(t, message);
 			}
 		}
-		throw new SyntaxException(t, "Invalid Tokens");
 	}
 
 	private Token consume() throws SyntaxException {

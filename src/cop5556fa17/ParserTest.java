@@ -83,15 +83,168 @@ public class ParserTest {
 		Parser parser = new Parser(scanner);
 		parser.expression(); // Call expression directly.
 	}
-	
+
 	@Test
-	public void expression2() throws SyntaxException, LexicalException {
+	public void dhirajTestCase0() throws SyntaxException, LexicalException {
 		String input = "var[x,y] != 5;";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
 		parser.program(); // Call expression directly.
+	}
+
+	@Test
+	public void dhirajTestCase1() throws LexicalException, SyntaxException {
+		String input = "abc";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void dhirajTestCase2() throws LexicalException, SyntaxException {
+		String input = "  (3,5) ";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.parse(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
+	}
+
+	@Test
+	public void dhirajTestCase3() throws LexicalException, SyntaxException {
+		String input = "  (3,) ";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(Parser.SyntaxException.class);
+		parser.program();
+	}
+
+	@Test
+	public void dhirajTestCase4() throws LexicalException, SyntaxException {
+		String input = "prog0 int index = 0 ;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase5() throws LexicalException, SyntaxException {
+		String input = "hello;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase6() throws LexicalException, SyntaxException {
+		String input = "hello world = 5 - 8;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase7() throws LexicalException, SyntaxException {
+		String input = "start home = ( cos [90, 10] );";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase8() throws LexicalException, SyntaxException {
+		String input = "legal url myUrl = page; boolean real = atan [10, 55];";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase9() throws LexicalException, SyntaxException {
+		String input = "legal url page, boolean real";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase10() throws LexicalException, SyntaxException {
+		String input = "";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase11() throws LexicalException, SyntaxException {
+		String input = " This is testcase number 7";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase12() throws LexicalException, SyntaxException {
+		String input = "begin file fileName = \"inputFile\";";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase13() throws LexicalException, SyntaxException {
+		String input = "begin file f1 (;)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
+
+	@Test
+	public void dhirajTestCase14() throws LexicalException, SyntaxException {
+		String input = "starting file f1, boolean boo ([])";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
 	}
 
 }
