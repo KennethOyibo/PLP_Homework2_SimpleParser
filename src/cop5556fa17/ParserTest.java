@@ -76,7 +76,7 @@ public class ParserTest {
 	 */
 	@Test
 	public void expression1() throws SyntaxException, LexicalException {
-		String input = "2";
+		String input = "2 + 4 * 5 / 6 ;";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);

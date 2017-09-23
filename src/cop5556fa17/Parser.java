@@ -234,7 +234,33 @@ public class Parser {
 	 */
 	void expression() throws SyntaxException {
 		// TODO implement this.
-		if (t.kind == OP_PLUS || t.kind == OP_MINUS || t.kind == OP_EXCL) {
+
+		switch (t.kind) {
+		case OP_PLUS:
+		case OP_MINUS:
+		case OP_EXCL:
+		case INTEGER_LITERAL:
+		case LPAREN:
+		case KW_sin:
+		case KW_cos:
+		case KW_atan:
+		case KW_abs:
+		case KW_cart_x:
+		case KW_cart_y:
+		case KW_polar_a:
+		case KW_polar_r:
+		case IDENTIFIER:
+		case KW_x:
+		case KW_y:
+		case KW_r:
+		case KW_a:
+		case KW_X:
+		case KW_Y:
+		case KW_Z:
+		case KW_A:
+		case KW_R:
+		case KW_DEF_X:
+		case KW_DEF_Y:
 			orExpression();
 			if (t.kind == OP_Q) {
 				matchToken(OP_Q);
@@ -242,11 +268,12 @@ public class Parser {
 				matchToken(OP_COLON);
 				expression();
 			}
-		} else {
-			throw new UnsupportedOperationException();
+			break;
+		default:
+			throw new SyntaxException(t, "Illegal Start of Expression");
 		}
 	}
-	
+
 	void orExpression() throws SyntaxException {
 		andExpression();
 		while (t.kind == OP_OR) {
@@ -254,7 +281,7 @@ public class Parser {
 			andExpression();
 		}
 	}
-	
+
 	void andExpression() throws SyntaxException {
 		eqExpression();
 		while (t.kind == OP_AND) {
@@ -262,7 +289,7 @@ public class Parser {
 			eqExpression();
 		}
 	}
-	
+
 	void eqExpression() throws SyntaxException {
 		relExpression();
 		while (t.kind == OP_EQ || t.kind == OP_NEQ) {
@@ -274,7 +301,7 @@ public class Parser {
 			relExpression();
 		}
 	}
-	
+
 	void relExpression() throws SyntaxException {
 		addExpression();
 		while (t.kind == OP_LT || t.kind == OP_GT || t.kind == OP_LE || t.kind == OP_GE) {
@@ -292,12 +319,12 @@ public class Parser {
 				matchToken(OP_GE);
 				break;
 			default:
-				break;
+				throw new SyntaxException(t, "Illegal Compare Expression");
 			}
 			addExpression();
 		}
 	}
-	
+
 	void addExpression() throws SyntaxException {
 		multExpression();
 		while (t.kind == OP_PLUS || t.kind == OP_MINUS) {
@@ -309,12 +336,12 @@ public class Parser {
 				matchToken(OP_MINUS);
 				break;
 			default:
-				break;
+				throw new SyntaxException(t, "Illegal Add/Subtract Expression");
 			}
 			multExpression();
 		}
 	}
-	
+
 	void multExpression() throws SyntaxException {
 		unaryExpression();
 		while (t.kind == OP_TIMES || t.kind == OP_DIV || t.kind == OP_MOD) {
@@ -329,12 +356,12 @@ public class Parser {
 				matchToken(OP_MOD);
 				break;
 			default:
-				break;
+				throw new SyntaxException(t, "Illegal Multiplication Expression");
 			}
 			unaryExpression();
 		}
 	}
-	
+
 	void unaryExpression() throws SyntaxException {
 		switch (t.kind) {
 		case OP_PLUS:
@@ -345,13 +372,35 @@ public class Parser {
 			matchToken(OP_MINUS);
 			unaryExpression();
 		case OP_EXCL:
+		case INTEGER_LITERAL:
+		case LPAREN:
+		case KW_sin:
+		case KW_cos:
+		case KW_atan:
+		case KW_abs:
+		case KW_cart_x:
+		case KW_cart_y:
+		case KW_polar_a:
+		case KW_polar_r:
+		case IDENTIFIER:
+		case KW_x:
+		case KW_y:
+		case KW_r:
+		case KW_a:
+		case KW_X:
+		case KW_Y:
+		case KW_Z:
+		case KW_A:
+		case KW_R:
+		case KW_DEF_X:
+		case KW_DEF_Y:
 			unaryExpressionNotPlusMinus();
-		default:
 			break;
+		default:
+			throw new SyntaxException(t, "Illegal Unary Expression");
 		}
-		matchToken(OP_PLUS);
 	}
-	
+
 	void unaryExpressionNotPlusMinus() throws SyntaxException {
 		switch (t.kind) {
 		case OP_EXCL:
@@ -407,10 +456,10 @@ public class Parser {
 			matchToken(KW_DEF_Y);
 			break;
 		default:
-			break;
+			throw new SyntaxException(t, "Illegal Unary Expression");
 		}
 	}
-	
+
 	void primary() throws SyntaxException {
 		switch (t.kind) {
 		case INTEGER_LITERAL:
@@ -431,10 +480,10 @@ public class Parser {
 			functionApplication();
 			break;
 		default:
-			break;
+			throw new SyntaxException(t, "Illegal Primary Expression");
 		}
 	}
-	
+
 	void identOrPixelSelectorExpression() throws SyntaxException {
 		matchToken(IDENTIFIER);
 		if (t.kind == LSQUARE) {
@@ -443,17 +492,55 @@ public class Parser {
 			matchToken(RSQUARE);
 		}
 	}
-	
+
 	void functionApplication() throws SyntaxException {
-		
+		functionName();
+		if (t.kind == LPAREN) {
+			matchToken(LPAREN);
+			expression();
+			matchToken(RPAREN);
+		} else if (t.kind == LSQUARE) {
+			matchToken(LSQUARE);
+			selector();
+			matchToken(RSQUARE);
+		}
 	}
-	
+
 	void functionName() throws SyntaxException {
-		
+		switch (t.kind) {
+		case KW_sin:
+			matchToken(KW_sin);
+			break;
+		case KW_cos:
+			matchToken(KW_cos);
+			break;
+		case KW_atan:
+			matchToken(KW_atan);
+			break;
+		case KW_abs:
+			matchToken(KW_abs);
+			break;
+		case KW_cart_x:
+			matchToken(KW_cart_x);
+			break;
+		case KW_cart_y:
+			matchToken(KW_cart_y);
+			break;
+		case KW_polar_a:
+			matchToken(KW_polar_a);
+			break;
+		case KW_polar_r:
+			matchToken(KW_polar_r);
+			break;
+		default:
+			throw new SyntaxException(t, "Illegal Function Name");
+		}
 	}
-	
+
 	void selector() throws SyntaxException {
-		
+		expression();
+		matchToken(COMMA);
+		expression();
 	}
 
 	/**
@@ -484,7 +571,6 @@ public class Parser {
 				return consume();
 			}
 		}
-
 		throw new SyntaxException(t, "Invalid Tokens");
 	}
 
