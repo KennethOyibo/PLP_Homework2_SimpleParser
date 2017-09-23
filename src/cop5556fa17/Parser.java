@@ -359,6 +359,15 @@ public class Parser {
 			unaryExpression();
 			break;
 		case INTEGER_LITERAL:
+		case LPAREN:
+		case KW_sin:
+		case KW_cos:
+		case KW_atan:
+		case KW_abs:
+		case KW_cart_x:
+		case KW_cart_y:
+		case KW_polar_a:
+		case KW_polar_r:
 			primary();
 			break;
 		case IDENTIFIER:
@@ -403,7 +412,27 @@ public class Parser {
 	}
 	
 	void primary() throws SyntaxException {
-		
+		switch (t.kind) {
+		case INTEGER_LITERAL:
+			matchToken(INTEGER_LITERAL);
+			break;
+		case LPAREN:
+			matchToken(LPAREN);
+			expression();
+			matchToken(RPAREN);
+		case KW_sin:
+		case KW_cos:
+		case KW_atan:
+		case KW_abs:
+		case KW_cart_x:
+		case KW_cart_y:
+		case KW_polar_a:
+		case KW_polar_r:
+			functionApplication();
+			break;
+		default:
+			break;
+		}
 	}
 	
 	void identOrPixelSelectorExpression() throws SyntaxException {
