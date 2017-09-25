@@ -179,13 +179,13 @@ public class Parser {
 			matchToken(COMMA);
 			expression();
 			matchToken(RSQUARE);
-		} else {
-			matchToken(IDENTIFIER);
-			if (t.kind == OP_LARROW) {
-				matchToken(OP_LARROW);
-				source();
-			}
 		}
+		matchToken(IDENTIFIER);
+		if (t.kind == OP_LARROW) {
+			matchToken(OP_LARROW);
+			source();
+		}
+
 	}
 
 	void sourceSinkDeclaration() throws SyntaxException {
@@ -262,6 +262,7 @@ public class Parser {
 		case KW_R:
 		case KW_DEF_X:
 		case KW_DEF_Y:
+		case BOOLEAN_LITERAL:
 			orExpression();
 			if (t.kind == OP_Q) {
 				matchToken(OP_Q);
@@ -396,6 +397,7 @@ public class Parser {
 		case KW_R:
 		case KW_DEF_X:
 		case KW_DEF_Y:
+		case BOOLEAN_LITERAL:
 			unaryExpressionNotPlusMinus();
 			break;
 		default:
@@ -419,6 +421,7 @@ public class Parser {
 		case KW_cart_y:
 		case KW_polar_a:
 		case KW_polar_r:
+		case BOOLEAN_LITERAL:
 			primary();
 			break;
 		case IDENTIFIER:
@@ -481,6 +484,9 @@ public class Parser {
 		case KW_polar_a:
 		case KW_polar_r:
 			functionApplication();
+			break;
+		case BOOLEAN_LITERAL:
+			matchToken(BOOLEAN_LITERAL);
 			break;
 		default:
 			throw new SyntaxException(t, "Illegal Primary Expression");

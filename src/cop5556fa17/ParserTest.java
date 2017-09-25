@@ -246,5 +246,16 @@ public class ParserTest {
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
+	
+	@Test
+	public void dhirajTestCase15() throws LexicalException, SyntaxException {
+		String input = "boolean bool = true";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		Parser parser = new Parser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
+	}
 
 }
