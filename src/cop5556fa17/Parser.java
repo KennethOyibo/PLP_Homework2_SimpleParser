@@ -50,22 +50,24 @@ public class Parser {
 			matchToken(IDENTIFIER);
 
 			while (t.kind == KW_int || t.kind == KW_boolean || t.kind == KW_image || t.kind == KW_url
-					|| t.kind == KW_file) {
-				declaration();
-				if (t.kind == SEMI) {
-					matchToken(SEMI);
-				} else {
-					throw new SyntaxException(t, "Missing Semicolon");
-				}
+					|| t.kind == KW_file || t.kind == IDENTIFIER) {
+				
+				if (t.kind == KW_int || t.kind == KW_boolean || t.kind == KW_image || t.kind == KW_url
+						|| t.kind == KW_file) {
+					declaration();
+					if (t.kind == SEMI) {
+						matchToken(SEMI);
+					} else {
+						throw new SyntaxException(t, "Missing Semicolon");
+					}
 
-			}
-
-			while (t.kind == IDENTIFIER) {
-				statement();
-				if (t.kind == SEMI) {
-					matchToken(SEMI);
-				} else {
-					throw new SyntaxException(t, "Missing Semicolon");
+				} else if (t.kind == IDENTIFIER) {
+					statement();
+					if (t.kind == SEMI) {
+						matchToken(SEMI);
+					} else {
+						throw new SyntaxException(t, "Missing Semicolon");
+					}
 				}
 			}
 		} else {
@@ -112,7 +114,7 @@ public class Parser {
 	}
 
 	void imageInDeclaration() throws SyntaxException {
-		matchToken(IDENTIFIER, OP_RARROW);
+		matchToken(IDENTIFIER, OP_LARROW);
 		source();
 	}
 
