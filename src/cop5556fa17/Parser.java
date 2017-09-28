@@ -32,7 +32,7 @@ public class Parser {
 	 */
 	public void parse() throws SyntaxException {
 		program();
-		matchEOF();
+//		matchEOF();
 	}
 
 	/**
