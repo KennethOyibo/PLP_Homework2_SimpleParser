@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 import cop5556fa17.Parser.SyntaxException;
 import cop5556fa17.Scanner.LexicalException;
 
-public class ParserTestShubham {
+public class ParserTestExtra {
 
 	// set Junit to be able to catch exceptions
 	@Rule

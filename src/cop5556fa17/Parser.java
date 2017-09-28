@@ -32,7 +32,7 @@ public class Parser {
 	 */
 	public void parse() throws SyntaxException {
 		program();
-//		matchEOF();
+		// matchEOF();
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class Parser {
 
 			while (t.kind == KW_int || t.kind == KW_boolean || t.kind == KW_image || t.kind == KW_url
 					|| t.kind == KW_file || t.kind == IDENTIFIER) {
-				
+
 				if (t.kind == KW_int || t.kind == KW_boolean || t.kind == KW_image || t.kind == KW_url
 						|| t.kind == KW_file) {
 					declaration();
@@ -77,26 +77,37 @@ public class Parser {
 	}
 
 	void declaration() throws SyntaxException {
-		if (t.kind == KW_int || t.kind == KW_boolean) {
+		switch (t.kind) {
+		case KW_int:
+		case KW_boolean:
 			variableDeclaration();
-		} else if (t.kind == KW_image) {
+			break;
+		case KW_image:
 			imageDeclaration();
-		} else if (t.kind == KW_url || t.kind == KW_file) {
+			break;
+		case KW_url:
+		case KW_file:
 			sourceSinkDeclaration();
+			break;
+		default:
+			throw new SyntaxException(t, "Illegal Declaration");
 		}
 	}
 
 	void statement() throws SyntaxException {
 		if (t.kind == IDENTIFIER && scanner.peek().kind == OP_RARROW) {
-			imageOutDeclaration();
+			imageOutStatement();
 		} else if (t.kind == IDENTIFIER && scanner.peek().kind == OP_LARROW) {
-			imageInDeclaration();
-		} else {
+			imageInStatement();
+		} else if ((t.kind == IDENTIFIER && scanner.peek().kind == OP_ASSIGN)
+				|| (t.kind == IDENTIFIER && scanner.peek().kind == LSQUARE)) {
 			assignmentStatement();
+		} else {
+			throw new SyntaxException(t, "Illegal Statement");
 		}
 	}
 
-	void imageOutDeclaration() throws SyntaxException {
+	void imageOutStatement() throws SyntaxException {
 		matchToken(IDENTIFIER, OP_RARROW);
 		sink();
 	}
@@ -114,7 +125,7 @@ public class Parser {
 		}
 	}
 
-	void imageInDeclaration() throws SyntaxException {
+	void imageInStatement() throws SyntaxException {
 		matchToken(IDENTIFIER, OP_LARROW);
 		source();
 	}
@@ -241,7 +252,7 @@ public class Parser {
 		myExpression();
 		matchEOF();
 	}
-	
+
 	void myExpression() throws SyntaxException {
 		switch (t.kind) {
 		case OP_PLUS:
