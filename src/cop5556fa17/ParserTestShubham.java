@@ -317,16 +317,6 @@ public class ParserTestShubham {
 	}
 
 	@Test
-	public void testcase16() throws SyntaxException, LexicalException {
-		String input = "isFile file filepng=\"abcd\"; \n @expr=12; url filepng=@expr; \n url filepng=abcdefg";
-		show(input);
-		Scanner scanner = new Scanner(input).scan();
-		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program();
-	}
-
-	@Test
 	public void testcase17() throws SyntaxException, LexicalException {
 		String input = "isFile file filepng=\"abcd\" \n @expr=12; url filepng=@expr; \n url filepng=abcdefg"; // Should
 																												// fail
@@ -563,7 +553,13 @@ public class ParserTestShubham {
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.raSelector(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
 	}
 
 	@Test
@@ -608,17 +604,29 @@ public class ParserTestShubham {
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.expression(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
 	}
 
 	@Test
 	public void testcase36() throws SyntaxException, LexicalException {
-		String input = "r=IdentOrPixelSelectorExpression[5,6]";
+		String input = "r = IdentOrPixelSelectorExpression[5,6]";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.expression(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
 	}
 
 	@Test
@@ -777,7 +785,7 @@ public class ParserTestShubham {
 
 	@Test
 	public void testcase48() throws SyntaxException, LexicalException {
-		String input = "(6*2/23/4*22*sin(x))<=(abs(6*2*12)+cart_x[x,y]+cart_y[(6/23),(7/23)])+polar_a[6/2/2,2/3/4]+polar_r(z))";
+		String input = "(6*2/23/4*22*sin(x))<=(abs(6*2*12)+cart_x[x,y]+cart_y[(6/23),(7/23)])+polar_a[6/2/2,2/3/4]+polar_r(z)";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);

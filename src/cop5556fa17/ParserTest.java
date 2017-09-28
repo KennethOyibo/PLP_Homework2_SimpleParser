@@ -86,12 +86,12 @@ public class ParserTest {
 
 	@Test
 	public void dhirajTestCase0() throws SyntaxException, LexicalException {
-		String input = "var[x,y] != 5;";
+		String input = "var [x,y]";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		Parser parser = new Parser(scanner);
-		parser.program(); // Call expression directly.
+		parser.expression(); // Call expression directly.
 	}
 
 	@Test

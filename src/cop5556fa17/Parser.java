@@ -122,7 +122,7 @@ public class Parser {
 	void assignmentStatement() throws SyntaxException {
 		lhs();
 		matchToken(OP_ASSIGN);
-		expression();
+		myExpression();
 	}
 
 	void lhs() throws SyntaxException {
@@ -157,7 +157,7 @@ public class Parser {
 		matchToken(IDENTIFIER);
 		if (t.kind == OP_ASSIGN) {
 			matchToken(OP_ASSIGN);
-			expression();
+			myExpression();
 		}
 	}
 
@@ -178,9 +178,9 @@ public class Parser {
 		matchToken(KW_image);
 		if (t.kind == LSQUARE) {
 			matchToken(LSQUARE);
-			expression();
+			myExpression();
 			matchToken(COMMA);
-			expression();
+			myExpression();
 			matchToken(RSQUARE);
 		}
 		matchToken(IDENTIFIER);
@@ -217,7 +217,7 @@ public class Parser {
 			break;
 		case OP_AT:
 			matchToken(OP_AT);
-			expression();
+			myExpression();
 			break;
 		case IDENTIFIER:
 			matchToken(IDENTIFIER);
@@ -238,7 +238,11 @@ public class Parser {
 	 */
 	void expression() throws SyntaxException {
 		// TODO implement this.
-
+		myExpression();
+		matchEOF();
+	}
+	
+	void myExpression() throws SyntaxException {
 		switch (t.kind) {
 		case OP_PLUS:
 		case OP_MINUS:
@@ -269,15 +273,14 @@ public class Parser {
 			orExpression();
 			if (t.kind == OP_Q) {
 				matchToken(OP_Q);
-				expression();
+				myExpression();
 				matchToken(OP_COLON);
-				expression();
+				myExpression();
 			}
 			break;
 		default:
 			throw new SyntaxException(t, "Illegal Start of Expression");
 		}
-		matchEOF();
 	}
 
 	void orExpression() throws SyntaxException {
@@ -476,7 +479,7 @@ public class Parser {
 			break;
 		case LPAREN:
 			matchToken(LPAREN);
-			expression();
+			myExpression();
 			matchToken(RPAREN);
 			break;
 		case KW_sin:
@@ -510,7 +513,7 @@ public class Parser {
 		functionName();
 		if (t.kind == LPAREN) {
 			matchToken(LPAREN);
-			expression();
+			myExpression();
 			matchToken(RPAREN);
 		} else if (t.kind == LSQUARE) {
 			matchToken(LSQUARE);
@@ -551,9 +554,9 @@ public class Parser {
 	}
 
 	void selector() throws SyntaxException {
-		expression();
+		myExpression();
 		matchToken(COMMA);
-		expression();
+		myExpression();
 	}
 
 	/**
