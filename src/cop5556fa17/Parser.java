@@ -73,6 +73,7 @@ public class Parser {
 		} else {
 			throw new SyntaxException(t, "Illegal Start of Program");
 		}
+		matchEOF();
 	}
 
 	void declaration() throws SyntaxException {
@@ -276,6 +277,7 @@ public class Parser {
 		default:
 			throw new SyntaxException(t, "Illegal Start of Expression");
 		}
+		matchEOF();
 	}
 
 	void orExpression() throws SyntaxException {
