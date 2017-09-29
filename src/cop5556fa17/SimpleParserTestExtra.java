@@ -1680,4 +1680,253 @@ public class SimpleParserTestExtra {
 		}
 	}
 
+	@Test
+	public void testDec11() throws LexicalException, SyntaxException {
+		String input = "prog int k;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan(); // Create a Scanner and initialize it
+		show(scanner); // Display the Scanner
+		SimpleParser parser = new SimpleParser(scanner); //
+		parser.parse();
+	}
+
+	@Test
+	public void expression23() throws SyntaxException, LexicalException {
+		String input = "2";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression2() throws SyntaxException, LexicalException {
+		String input = "harshit int b";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.parse(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
+	}
+
+	@Test
+	public void expression3() throws SyntaxException, LexicalException {
+		String input = "harshit int b;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	// checking image declaration
+	public void expression4() throws SyntaxException, LexicalException {
+		String input = "harshit image pratham;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression5() throws SyntaxException, LexicalException {
+		String input = "harshit file ban=\"bans\";";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression6() throws SyntaxException, LexicalException {
+		String input = "harshit image [m+p,b+y] jh;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression7() throws SyntaxException, LexicalException {
+		String input = "harshit image [m+p,b+y] jh <- \"Pratham\";";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression8() throws SyntaxException, LexicalException {
+		String input = "harshit int p=a+b;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression9() throws SyntaxException, LexicalException {
+		String input = "harshit harshit = a+b;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression10() throws SyntaxException, LexicalException {
+		String input = "harshit harshit -> pratham;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression11() throws SyntaxException, LexicalException {
+		String input = "harshit harshit <- @123+456;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression12() throws SyntaxException, LexicalException {
+		String input = "harshit harshit [[x,y]]=a+b;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression13() throws SyntaxException, LexicalException {
+		String input = "harshit harshit [[x,y]] = 5;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.program();
+	}
+
+	@Test
+	public void expression14() throws SyntaxException, LexicalException {
+		String input = "atan(a+b)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression18() throws SyntaxException, LexicalException {
+		String input = "atan(a+b)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression15() throws SyntaxException, LexicalException {
+		String input = "log(a+b)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.expression(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
+	}
+
+	@Test
+	public void expression16() throws SyntaxException, LexicalException {
+		String input = "harshit (a+b,m+n)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression(); // Parse the program
+	}
+
+	@Test
+	public void expression17() throws SyntaxException, LexicalException {
+		String input = "harshit ";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression(); // Parse the program
+	}
+
+	@Test
+	public void expression19() throws SyntaxException, LexicalException {
+		String input = "atan(a+b)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression20() throws SyntaxException, LexicalException {
+		String input = "atan(a+b)";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression21() throws SyntaxException, LexicalException {
+		String input = "2 + 3 * 4/5 != 2 & 2 & 6";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		parser.expression();
+	}
+
+	@Test
+	public void expression22() throws SyntaxException, LexicalException {
+		String input = "program ;";
+		show(input);
+		Scanner scanner = new Scanner(input).scan();
+		show(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
+		thrown.expect(SyntaxException.class);
+		try {
+			parser.parse(); // Parse the program
+		} catch (SyntaxException e) {
+			show(e);
+			throw e;
+		}
+	}
+
 }
