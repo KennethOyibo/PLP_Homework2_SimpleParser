@@ -132,7 +132,7 @@ public class SimpleParser {
 	void assignmentStatement() throws SyntaxException {
 		lhs();
 		matchToken(OP_ASSIGN);
-		myExpression();
+		expression();
 	}
 
 	void lhs() throws SyntaxException {
@@ -167,7 +167,7 @@ public class SimpleParser {
 		matchToken(IDENTIFIER);
 		if (t.kind == OP_ASSIGN) {
 			matchToken(OP_ASSIGN);
-			myExpression();
+			expression();
 		}
 	}
 
@@ -188,9 +188,9 @@ public class SimpleParser {
 		matchToken(KW_image);
 		if (t.kind == LSQUARE) {
 			matchToken(LSQUARE);
-			myExpression();
+			expression();
 			matchToken(COMMA);
-			myExpression();
+			expression();
 			matchToken(RSQUARE);
 		}
 		matchToken(IDENTIFIER);
@@ -227,7 +227,7 @@ public class SimpleParser {
 			break;
 		case OP_AT:
 			matchToken(OP_AT);
-			myExpression();
+			expression();
 			break;
 		case IDENTIFIER:
 			matchToken(IDENTIFIER);
@@ -248,10 +248,6 @@ public class SimpleParser {
 	 */
 	void expression() throws SyntaxException {
 		// TODO implement this.
-		myExpression();
-	}
-
-	void myExpression() throws SyntaxException {
 		switch (t.kind) {
 		case OP_PLUS:
 		case OP_MINUS:
@@ -282,9 +278,9 @@ public class SimpleParser {
 			orExpression();
 			if (t.kind == OP_Q) {
 				matchToken(OP_Q);
-				myExpression();
+				expression();
 				matchToken(OP_COLON);
-				myExpression();
+				expression();
 			}
 			break;
 		default:
@@ -488,7 +484,7 @@ public class SimpleParser {
 			break;
 		case LPAREN:
 			matchToken(LPAREN);
-			myExpression();
+			expression();
 			matchToken(RPAREN);
 			break;
 		case KW_sin:
@@ -522,7 +518,7 @@ public class SimpleParser {
 		functionName();
 		if (t.kind == LPAREN) {
 			matchToken(LPAREN);
-			myExpression();
+			expression();
 			matchToken(RPAREN);
 		} else if (t.kind == LSQUARE) {
 			matchToken(LSQUARE);
@@ -563,9 +559,9 @@ public class SimpleParser {
 	}
 
 	void selector() throws SyntaxException {
-		myExpression();
+		expression();
 		matchToken(COMMA);
-		myExpression();
+		expression();
 	}
 
 	/**

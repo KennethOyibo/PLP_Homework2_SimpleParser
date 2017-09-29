@@ -1819,12 +1819,12 @@ public class SimpleParserTestExtra {
 
 	@Test
 	public void expression13() throws SyntaxException, LexicalException {
-		String input = "harshit harshit [[x,y]] = 5;";
+		String input = "harshit harshit [[x,y]];";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		SimpleParser parser = new SimpleParser(scanner);
-		parser.program();
+		parser.expression();
 	}
 
 	@Test
@@ -1920,13 +1920,9 @@ public class SimpleParserTestExtra {
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
 		SimpleParser parser = new SimpleParser(scanner);
-		thrown.expect(SyntaxException.class);
-		try {
-			parser.parse(); // Parse the program
-		} catch (SyntaxException e) {
-			show(e);
-			throw e;
-		}
+
+		parser.expression(); // Parse the program
+
 	}
 
 }
