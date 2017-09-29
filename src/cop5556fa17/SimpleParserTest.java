@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import cop5556fa17.Scanner.LexicalException;
-import cop5556fa17.Parser.SyntaxException;
+import cop5556fa17.SimpleParser.SyntaxException;
 
-public class ParserTest {
+public class SimpleParserTest {
 
 	// set Junit to be able to catch exceptions
 	@Rule
@@ -35,7 +35,7 @@ public class ParserTest {
 		show(input); // Display the input
 		Scanner scanner = new Scanner(input).scan(); // Create a Scanner and initialize it
 		show(scanner); // Display the Scanner
-		Parser parser = new Parser(scanner); // Create a parser
+		SimpleParser parser = new SimpleParser(scanner); // Create a parser
 		thrown.expect(SyntaxException.class);
 		try {
 			parser.parse(); // Parse the program
@@ -59,7 +59,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan(); // Create a Scanner and initialize it
 		show(scanner); // Display the Scanner
-		Parser parser = new Parser(scanner); //
+		SimpleParser parser = new SimpleParser(scanner); //
 		parser.parse();
 	}
 
@@ -80,7 +80,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.expression(); // Call expression directly.
 	}
 
@@ -90,7 +90,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.expression(); // Call expression directly.
 	}
 
@@ -100,7 +100,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.program();
 	}
 
@@ -110,7 +110,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
 			parser.parse(); // Parse the program
@@ -126,9 +126,9 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		thrown.expect(Parser.SyntaxException.class);
-		parser.program();
+		SimpleParser parser = new SimpleParser(scanner);
+		thrown.expect(SyntaxException.class);
+		parser.parse();
 	}
 
 	@Test
@@ -137,7 +137,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.parse();
 	}
 
@@ -147,7 +147,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
@@ -158,7 +158,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.parse();
 	}
 
@@ -168,7 +168,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.parse();
 	}
 
@@ -178,7 +178,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.parse();
 	}
 
@@ -188,7 +188,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
@@ -199,7 +199,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
@@ -210,7 +210,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
@@ -221,7 +221,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		parser.parse();
 	}
 
@@ -231,7 +231,7 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
@@ -242,18 +242,18 @@ public class ParserTest {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}
-	
+
 	@Test
 	public void dhirajTestCase15() throws LexicalException, SyntaxException {
 		String input = "boolean bool = true";
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser parser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		parser.parse();
 	}

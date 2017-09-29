@@ -4,7 +4,7 @@ import cop5556fa17.Scanner.Kind;
 import cop5556fa17.Scanner.Token;
 import static cop5556fa17.Scanner.Kind.*;
 
-public class Parser {
+public class SimpleParser {
 
 	@SuppressWarnings("serial")
 	public class SyntaxException extends Exception {
@@ -20,7 +20,7 @@ public class Parser {
 	Scanner scanner;
 	Token t;
 
-	Parser(Scanner scanner) {
+	SimpleParser(Scanner scanner) {
 		this.scanner = scanner;
 		t = scanner.nextToken();
 	}
@@ -32,7 +32,7 @@ public class Parser {
 	 */
 	public void parse() throws SyntaxException {
 		program();
-		// matchEOF();
+		matchEOF();
 	}
 
 	/**
@@ -73,7 +73,6 @@ public class Parser {
 		} else {
 			throw new SyntaxException(t, "Illegal Start of Program");
 		}
-		matchEOF();
 	}
 
 	void declaration() throws SyntaxException {
@@ -250,7 +249,6 @@ public class Parser {
 	void expression() throws SyntaxException {
 		// TODO implement this.
 		myExpression();
-		matchEOF();
 	}
 
 	void myExpression() throws SyntaxException {

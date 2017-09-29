@@ -4,10 +4,10 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import cop5556fa17.Parser.SyntaxException;
+import cop5556fa17.SimpleParser.SyntaxException;
 import cop5556fa17.Scanner.LexicalException;
 
-public class ParserTestExtra {
+public class SimpleParserTestExtra {
 
 	// set Junit to be able to catch exceptions
 	@Rule
@@ -35,10 +35,10 @@ public class ParserTestExtra {
 		show(input); // Display the input
 		Scanner scanner = new Scanner(input).scan(); // Create a Scanner and initialize it
 		show(scanner); // Display the Scanner
-		Parser parser = new Parser(scanner); // Create a parser
+		SimpleParser SimpleParser = new SimpleParser(scanner); // Create a SimpleParser
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.parse(); // Parse the program
+			SimpleParser.parse(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -46,8 +46,8 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * Another example. This is a legal program and should pass when your parser is
-	 * implemented.
+	 * Another example. This is a legal program and should pass when your
+	 * SimpleParser is implemented.
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -59,8 +59,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan(); // Create a Scanner and initialize it
 		show(scanner); // Display the Scanner
-		Parser parser = new Parser(scanner); //
-		parser.parse();
+		SimpleParser SimpleParser = new SimpleParser(scanner); //
+		SimpleParser.parse();
 	}
 
 	/**
@@ -81,10 +81,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -97,10 +97,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -113,10 +113,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -129,10 +129,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -146,11 +146,11 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		// parser.program();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		// SimpleParser.program();
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -163,10 +163,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -179,8 +179,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program();
 	}
 
 	@Test
@@ -189,8 +189,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program();
 	}
 
 	@Test
@@ -199,8 +199,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program();
 	}
 
 	@Test
@@ -209,10 +209,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.parse(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -225,10 +225,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.parse(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -244,10 +244,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -262,10 +262,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -278,10 +278,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -297,10 +297,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -318,10 +318,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -334,10 +334,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -350,8 +350,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program(); // Parse the program
 	}
 
 	@Test
@@ -363,8 +363,8 @@ public class ParserTestExtra {
 																												// cases
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program(); // Parse the program
 	}
 
 	@Test
@@ -373,8 +373,8 @@ public class ParserTestExtra {
 																									// statement
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.program(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.program(); // Parse the program
 	}
 
 	@Test
@@ -383,10 +383,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -399,10 +399,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.program(); // Parse the program
+			SimpleParser.program(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -416,8 +416,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.functionName(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.functionName(); // Parse the program
 	}
 
 	// LhsSelector ::= LSQUARE ( XySelector | RaSelector ) RSQUARE
@@ -428,8 +428,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.lhsSelector(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.lhsSelector(); // Parse the program
 	}
 
 	@Test
@@ -438,10 +438,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.lhsSelector(); // Parse the program
+			SimpleParser.lhsSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -455,10 +455,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.lhsSelector(); // Parse the program
+			SimpleParser.lhsSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -473,8 +473,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.xySelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.xySelector();
 	}
 
 	@Test
@@ -483,10 +483,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.lhsSelector(); // Parse the program
+			SimpleParser.lhsSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -500,8 +500,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.raSelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.raSelector();
 	}
 
 	@Test
@@ -510,10 +510,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.raSelector(); // Parse the program
+			SimpleParser.raSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -526,10 +526,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.raSelector(); // Parse the program
+			SimpleParser.raSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -543,10 +543,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.raSelector(); // Parse the program
+			SimpleParser.raSelector(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -559,8 +559,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression(); // Parse the program
 	}
 
 	/**
@@ -594,14 +594,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		thrown.expect(SyntaxException.class);
-		try {
-			parser.expression(); // Parse the program
-		} catch (SyntaxException e) {
-			show(e);
-			throw e;
-		}
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression(); // Parse the program
 	}
 
 	@Test
@@ -610,14 +604,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		thrown.expect(SyntaxException.class);
-		try {
-			parser.expression(); // Parse the program
-		} catch (SyntaxException e) {
-			show(e);
-			throw e;
-		}
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression(); // Parse the program
 	}
 
 	@Test
@@ -626,8 +614,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression(); // Parse the program
 	}
 
 	@Test
@@ -636,8 +624,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression(); // Parse the program
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression(); // Parse the program
 	}
 
 	@Test
@@ -646,8 +634,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	/**
@@ -694,8 +682,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -704,10 +692,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.expression(); // Parse the program
+			SimpleParser.expression(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -720,8 +708,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -730,8 +718,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -740,8 +728,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -750,8 +738,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -760,8 +748,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -770,8 +758,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -780,8 +768,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -797,10 +785,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.expression(); // Parse the program
+			SimpleParser.expression(); // Parse the program
 		} catch (SyntaxException e) {
 			show(e);
 			throw e;
@@ -808,7 +796,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.sourceSinkType()
+	 * these test cases invoke SimpleParser.sourceSinkType()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -829,10 +817,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			// thrown.expect(SyntaxException.class);
 			try {
-				parser.program(); // Call expression directly.
+				SimpleParser.program(); // Call expression directly.
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -841,7 +829,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.sourceSinkType()
+	 * these test cases invoke SimpleParser.sourceSinkType()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -859,10 +847,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			thrown.expect(SyntaxException.class);
 			try {
-				parser.declaration();
+				SimpleParser.declaration();
 
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
@@ -872,7 +860,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.sourceSinkType()
+	 * these test cases invoke SimpleParser.sourceSinkType()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -887,10 +875,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			thrown.expect(SyntaxException.class);
 			try {
-				parser.variableDeclaration();
+				SimpleParser.variableDeclaration();
 
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
@@ -900,7 +888,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.sourceSinkType()
+	 * these test cases invoke SimpleParser.sourceSinkType()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -915,10 +903,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			thrown.expect(SyntaxException.class);
 			try {
-				parser.sourceSinkDeclaration();
+				SimpleParser.sourceSinkDeclaration();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -927,7 +915,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.sourceSinkType()
+	 * these test cases invoke SimpleParser.sourceSinkType()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -939,9 +927,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.sourceSinkType();
+				SimpleParser.sourceSinkType();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -956,9 +944,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.statement();
+				SimpleParser.statement();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());// throw e;
 			}
@@ -966,7 +954,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.imageDeclaration()
+	 * these test cases invoke SimpleParser.imageDeclaration()
 	 * 
 	 * @throws LexicalException
 	 * @throws SyntaxException
@@ -982,9 +970,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.imageDeclaration();
+				SimpleParser.imageDeclaration();
 
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
@@ -1004,10 +992,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			thrown.expect(SyntaxException.class);
 			try {
-				parser.imageDeclaration();
+				SimpleParser.imageDeclaration();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -1016,7 +1004,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.source()
+	 * these test cases invoke SimpleParser.source()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1033,9 +1021,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.statement();
+				SimpleParser.statement();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -1055,10 +1043,10 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			thrown.expect(SyntaxException.class);
 			try {
-				parser.statement();
+				SimpleParser.statement();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -1067,7 +1055,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.source()
+	 * these test cases invoke SimpleParser.source()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1082,9 +1070,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.source();
+				SimpleParser.source();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -1093,7 +1081,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.assignmentStatement()
+	 * these test cases invoke SimpleParser.assignmentStatement()
 	 */
 	@Test
 	public void assignmentStatementTest1() throws SyntaxException, LexicalException {
@@ -1105,9 +1093,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.assignmentStatement();
+				SimpleParser.assignmentStatement();
 			} catch (SyntaxException e) {
 				System.out.println(e.getMessage());
 				throw e;
@@ -1132,8 +1120,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.expression();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.expression();
 	}
 
 	@Test
@@ -1152,8 +1140,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.orExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.orExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1163,7 +1151,7 @@ public class ParserTestExtra {
 
 	/**
 	 * Do NOT SHARE WITH ANYONE or I am going to kick your ass when I find out.
-	 * cheers, Akshay Sharma these test cases invoke Parser.orExpression()
+	 * cheers, Akshay Sharma these test cases invoke SimpleParser.orExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1177,8 +1165,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.orExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.orExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1187,7 +1175,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.andExpression()
+	 * these test cases invoke SimpleParser.andExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1200,8 +1188,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.andExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.andExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1210,7 +1198,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.eqExpression()
+	 * these test cases invoke SimpleParser.eqExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1223,8 +1211,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.eqExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.eqExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1233,7 +1221,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.addExpression()
+	 * these test cases invoke SimpleParser.addExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1246,8 +1234,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.relExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.relExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1264,8 +1252,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.relExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.relExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1274,7 +1262,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.addExpression()
+	 * these test cases invoke SimpleParser.addExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1287,8 +1275,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.addExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.addExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1305,8 +1293,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.addExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.addExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1315,7 +1303,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.multExpression()
+	 * these test cases invoke SimpleParser.multExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1328,8 +1316,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.multExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.multExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1346,8 +1334,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.multExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.multExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1356,7 +1344,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.unaryExpression()
+	 * these test cases invoke SimpleParser.unaryExpression()
 	 * 
 	 * @throws SyntaxException
 	 * @throws LexicalException
@@ -1377,8 +1365,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.unaryExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.unaryExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1395,8 +1383,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.unaryExpression();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.unaryExpression();
 			}
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
@@ -1405,7 +1393,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.primary()
+	 * these test cases invoke SimpleParser.primary()
 	 */
 	@Test
 	public void primaryTest1() throws SyntaxException, LexicalException {
@@ -1422,8 +1410,8 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
-			parser.primary();
+			SimpleParser SimpleParser = new SimpleParser(scanner);
+			SimpleParser.primary();
 		}
 	}
 
@@ -1435,8 +1423,8 @@ public class ParserTestExtra {
 				show(x);
 				Scanner scanner = new Scanner(x).scan();
 				show(scanner);
-				Parser parser = new Parser(scanner);
-				parser.primary();
+				SimpleParser SimpleParser = new SimpleParser(scanner);
+				SimpleParser.primary();
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -1444,7 +1432,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.lhs()
+	 * these test cases invoke SimpleParser.lhs()
 	 */
 	@Test
 	public void lhstest1() throws SyntaxException, LexicalException {
@@ -1453,9 +1441,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.lhs();
+				SimpleParser.lhs();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -1469,9 +1457,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.lhs();
+				SimpleParser.lhs();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -1479,7 +1467,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.FunctionApplication()
+	 * these test cases invoke SimpleParser.FunctionApplication()
 	 */
 	@Test
 	public void FunctionApplicationtest1() throws SyntaxException, LexicalException {
@@ -1488,8 +1476,8 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
-			parser.functionApplication();
+			SimpleParser SimpleParser = new SimpleParser(scanner);
+			SimpleParser.functionApplication();
 		}
 	}
 
@@ -1500,9 +1488,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.functionApplication();
+				SimpleParser.functionApplication();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -1510,7 +1498,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.IdentOrPixelSelectorExpression()
+	 * these test cases invoke SimpleParser.IdentOrPixelSelectorExpression()
 	 */
 	@Test
 	public void identOrPixelSelectorExpressionTest1() throws SyntaxException, LexicalException {
@@ -1519,13 +1507,13 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
-			parser.identOrPixelSelectorExpression();
+			SimpleParser SimpleParser = new SimpleParser(scanner);
+			SimpleParser.identOrPixelSelectorExpression();
 		}
 	}
 
 	/**
-	 * these test cases invoke Parser.functionName()
+	 * these test cases invoke SimpleParser.functionName()
 	 */
 	@Test
 	public void FunctionNametest1() throws SyntaxException, LexicalException {
@@ -1534,8 +1522,8 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
-			parser.functionName();
+			SimpleParser SimpleParser = new SimpleParser(scanner);
+			SimpleParser.functionName();
 		}
 	}
 
@@ -1546,9 +1534,9 @@ public class ParserTestExtra {
 			show(x);
 			Scanner scanner = new Scanner(x).scan();
 			show(scanner);
-			Parser parser = new Parser(scanner);
+			SimpleParser SimpleParser = new SimpleParser(scanner);
 			try {
-				parser.functionName();
+				SimpleParser.functionName();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -1556,7 +1544,7 @@ public class ParserTestExtra {
 	}
 
 	/**
-	 * these test cases invoke Parser.lhsSelector()
+	 * these test cases invoke SimpleParser.lhsSelector()
 	 */
 	@Test
 	public void lhsSelectorTest1() throws SyntaxException, LexicalException {
@@ -1564,8 +1552,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.lhsSelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.lhsSelector();
 	}
 
 	@Test
@@ -1574,8 +1562,8 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.lhsSelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.lhsSelector();
 	}
 
 	@Test
@@ -1584,16 +1572,17 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		try {
-			parser.lhsSelector();
+			SimpleParser.lhsSelector();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
 	/**
-	 * this positive test case invokes the method for Parser.XySelector directly
+	 * this positive test case invokes the method for SimpleParser.XySelector
+	 * directly
 	 */
 	@Test
 	public void PositiveXySelectorTest() throws SyntaxException, LexicalException {
@@ -1601,12 +1590,13 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.xySelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.xySelector();
 	}
 
 	/**
-	 * this negative test case invokes the method for Parser.XySelector directly
+	 * this negative test case invokes the method for SimpleParser.XySelector
+	 * directly
 	 */
 	@Test
 	public void NegativeXySelectorTest() throws SyntaxException, LexicalException {
@@ -1614,16 +1604,17 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		try {
-			parser.xySelector();
+			SimpleParser.xySelector();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
 	/**
-	 * this positive test case invokes the method for Parser.RaSelector directly
+	 * this positive test case invokes the method for SimpleParser.RaSelector
+	 * directly
 	 */
 	@Test
 	public void PositiveRaSelectorTest() throws SyntaxException, LexicalException {
@@ -1631,12 +1622,13 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
-		parser.raSelector();
+		SimpleParser SimpleParser = new SimpleParser(scanner);
+		SimpleParser.raSelector();
 	}
 
 	/**
-	 * this negative test case invokes the method for Parser.RaSelector directly
+	 * this negative test case invokes the method for SimpleParser.RaSelector
+	 * directly
 	 */
 	@Test
 	public void NegativeRaSelectorTest() throws SyntaxException, LexicalException {
@@ -1644,16 +1636,16 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		try {
-			parser.raSelector();
+			SimpleParser.raSelector();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
 	/**
-	 * tests Parser.Selector only for terminal symbols
+	 * tests SimpleParser.Selector only for terminal symbols
 	 */
 	@Test
 	public void selectorTest1() throws SyntaxException, LexicalException {
@@ -1661,10 +1653,10 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		thrown.expect(SyntaxException.class);
 		try {
-			parser.selector();
+			SimpleParser.selector();
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
 			throw e;
@@ -1679,9 +1671,9 @@ public class ParserTestExtra {
 		show(input);
 		Scanner scanner = new Scanner(input).scan();
 		show(scanner);
-		Parser parser = new Parser(scanner);
+		SimpleParser SimpleParser = new SimpleParser(scanner);
 		try {
-			parser.selector();
+			SimpleParser.selector();
 		} catch (SyntaxException e) {
 			System.out.println(e.getMessage());
 			throw e;
